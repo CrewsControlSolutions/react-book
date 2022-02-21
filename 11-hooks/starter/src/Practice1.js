@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Practice1 = () => {
   /*
@@ -7,10 +7,12 @@ const Practice1 = () => {
    * 3. Display the count in an h1
    * 4. Add a button to increase the count
    */
+   const [count, setCount] = useState(0);
 
   return (
     <>
-      <h1>Counter</h1>
+        <h1>You clicked the button {count} times.</h1>
+        <button onClick={() => setCount(count+1)}>Add 1</button>
     </>
   );
 };

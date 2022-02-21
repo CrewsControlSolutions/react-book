@@ -5,8 +5,10 @@ class Practice1 extends React.Component {
     1. Create a state object
     2. Create a username property with a value of some username
   */
+  state = {username: 'jsmith'};
+
   render() {
-    return <p>USERNAME_HERE</p>;
+    return <p>Welcome, {this.state.username}</p>;
   }
 }
 

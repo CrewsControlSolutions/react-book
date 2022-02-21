@@ -1,4 +1,4 @@
-Hooks in React allow you to use state, component lifecycle and context in functional components.
+nHooks in React allow you to use state, component lifecycle and context in functional components.
 
 As React has matured, developers found that they prefer to write components as functions.  However, if you start a component as a function and then need to add state or use the component lifecycle you have had to rewrite your function as a class.  This can require tedious refactoring that leaves a lot of developers frustrated.
 

@@ -4,10 +4,10 @@ import React from "react";
   1. Setup UserForm to accept props
   2. Display the proper values from props where needed
 */
-const UserForm = () => (
+const UserForm = (props) => (
   <p>
-    <label htmlFor="PROPS_ID">PROPS_LABEL</label>:
-    <input id="PROPS_ID" type="text" onChange="PROPS_ONCHANGE" />
+    <label htmlFor={props.id}>{props.label}</label>:
+    <input id={props.id} type="text" onChange={props.onChange} />
   </p>
 );
 
@@ -21,10 +21,14 @@ class Practice3 extends React.Component {
     this.setState({ first: e.target.value });
   };
 
-  /* 
-    3. Create a handler function called handleLast    
+  /*
+    3. Create a handler function called handleLast
     4. Have the function update last in state to e.target.value
   */
+  handleLast = e => {
+      this.setState({ last: e.target.value });
+  }
+
 
   render() {
     return (
@@ -41,7 +45,10 @@ class Practice3 extends React.Component {
               id = "lastName"
               label = "Last Name"
               onChange = handleLast              
-        */}
+        */
+        }
+          <UserForm id="firstName" label="First Name" onChange={this.handleFirst} />
+          <UserForm id="lastName" label="Last Name" onChange={this.handleLast} />
       </>
     );
   }

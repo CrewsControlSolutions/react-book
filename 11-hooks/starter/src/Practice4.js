@@ -10,12 +10,23 @@ const Practice4 = () => {
 
   const [catImg, setCatImg] = useState(``);
 
+  const fetchCat = () => {
+      fetch(`https://aws.random.cat/meow`)
+          .then(response => response.json())
+          .then(data => setCatImg(data.file))
+          .catch(error => console.error(error));
+  }
+
   useEffect(() => {
-    fetch(`https://aws.random.cat/meow`)
-      .then(response => response.json())
-      .then(data => setCatImg(data.file))
-      .catch(error => console.error(error));
+      fetchCat();
   }, []);
+
+  useEffect(() => {
+      const timer = setTimeout(() => {
+          fetchCat();
+      }, 5000);
+      return () => clearTimeout(timer);
+  });
 
   return (
     <>

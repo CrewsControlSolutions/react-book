@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import NavBarStep from "./components/NavBarStep";
@@ -12,28 +12,18 @@ import FormContext from "./context/FormContext";
 
 import "./Practice5.css";
 
-class Practice5 extends React.Component {
-  state = {
-    user: {},
-    step: `1`,
-  };
+const Practice5 = () => {
 
-  updateUser = (user) => {
-    this.setState({ user });
-  };
+  const [user, updateUser] = useState({});
+  const [step, updateStep] = useState('1');
 
-  updateStep = (step) => {
-    this.setState({ step });
-  };
-
-  render() {
     return (
       <div>
         <UserContext.Provider
-          value={{ user: this.state.user, updateUser: this.updateUser }}
+          value={{ user, updateUser }}
         >
           <FormContext.Provider
-            value={{ step: this.state.step, updateStep: this.updateStep }}
+            value={{ step, updateStep }}
           >
             <Header>
               <NavBar>
@@ -53,7 +43,6 @@ class Practice5 extends React.Component {
         </UserContext.Provider>
       </div>
     );
-  }
 }
 
 export default Practice5;
